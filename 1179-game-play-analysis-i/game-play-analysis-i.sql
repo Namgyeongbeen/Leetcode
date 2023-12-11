@@ -14,6 +14,5 @@ select player_id
       , row_number () over(partition by player_id order by event_date) AS 1st
       , event_date
     from activity
-    order by player_id
   ) login_date
   where case when 1st = 1 then 1st end is not null;
