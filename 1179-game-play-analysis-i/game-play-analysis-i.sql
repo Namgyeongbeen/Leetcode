@@ -8,11 +8,11 @@
 
 # window함수 쓰고 풀기
 select player_id
-     , case when 1st = 1 then event_date end first_login
+     , event_date as first_login
   from (
   select player_id
       , row_number () over(partition by player_id order by event_date) AS 1st
       , event_date
     from activity
   ) login_date
-  where case when 1st = 1 then 1st end is not null;
+  where 1st = 1;
