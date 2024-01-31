@@ -13,3 +13,6 @@ select stock_name
      , sum(price) as capital_gain_loss
   from base_table
   group by stock_name;
+
+
+  
